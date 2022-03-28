@@ -387,6 +387,8 @@ namespace ILRepacking
                 nm.DebugInformation.CustomDebugInformations.AddRange(meth.DebugInformation.CustomDebugInformations);
             if (meth.DebugInformation.HasSequencePoints)
                 nm.DebugInformation.SequencePoints.AddRange(meth.DebugInformation.SequencePoints);
+            if (meth.DebugInformation.Scope != null)
+                nm.DebugInformation.Scope = meth.DebugInformation.Scope;
 
             type.Methods.Add(nm);
 
