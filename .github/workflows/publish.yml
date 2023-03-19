@@ -44,7 +44,7 @@ jobs:
         shell: pwsh
 
       - name: Build ILRepack
-        run: dotnet build ILRepack/ILRepack.csproj --configuration Release -o ./packages;
+        run: dotnet pack ILRepack/ILRepack.csproj --configuration Release -o ./packages;
         shell: pwsh
 
       - name: Upload packages
