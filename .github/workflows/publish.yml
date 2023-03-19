@@ -24,10 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-    - name: Setup .NET 3.1
-      uses: actions/setup-dotnet@master
-      with:
-        dotnet-version: 3.1.x
+      - name: Setup .NET 3.1
+        uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: 3.1.x
 
       - name: Build ILRepack
         run: dotnet pack src/ILRepack/ILRepack.csproj --configuration Release -o "./packages";
