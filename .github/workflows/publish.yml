@@ -38,7 +38,7 @@ jobs:
           cd ILRepack/bin/Release/netcoreapp3.1/;
           #dotnet ILRepack.dll /log /wildcards /internalize /out:../../netcoreapp3.1/ILRepack.dll /target:library ILRepack.dll BamlParser.dll Fasterflect.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll runtimes\win-x64\lib\netstandard2.0\Mono.Posix.NETStandard.dll;
           cd ../net461;
-          mono ILRepack.exe /log /wildcards /internalize /out:../../net461/ILRepack.dll /target:library ILRepack.exe BamlParser.dll Fasterflect.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll Mono.Posix.dll;
+          mono ILRepack.exe /log /wildcards /internalize /out:../../net461/ILRepack.exe /target:library ILRepack.exe BamlParser.dll Fasterflect.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll Mono.Posix.dll;
           #cd ../netstandard2.0;
           #dotnet ILRepack.dll /log /wildcards /internalize /out:../../netstandard2.0/ILRepack.dll /target:library ILRepack.dll BamlParser.dll Fasterflect.dll Microsoft.CSharp.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll System.Reflection.Emit.ILGeneration.dll System.Reflection.Emit.Lightweight.dll;
         shell: pwsh
