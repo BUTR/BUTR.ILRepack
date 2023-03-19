@@ -13,10 +13,12 @@ The former being closed-source, impossible to customize, slow, resource consumin
   </metadata>
   <files>
     <file src="ILRepack.props" target="build\ILRepack.props" />
-    <file src="bin\Release\netstandard2.0\ILRepack.dll" target="lib\netstandard2.0\ILRepack.dll" />
     <file src="bin\Release\net461\ILRepack.exe" target="tools\net461\ILRepack.exe" />
+    <!--
     <file src="bin\Release\netcoreapp3.1\ILRepack.dll" target="tools\netcoreapp3.1\ILRepack.dll" />
     <file src="bin\Release\netcoreapp3.1\ILRepack.deps.json" target="tools\netcoreapp3.1\ILRepack.deps.json" />
     <file src="bin\Release\netcoreapp3.1\ILRepack.runtimeconfig.json" target="tools\netcoreapp3.1\ILRepack.runtimeconfig.json" />
+    <file src="bin\Release\netstandard2.0\ILRepack.dll" target="lib\netstandard2.0\ILRepack.dll" />
+    -->
   </files>
 </package>
