@@ -1,5 +1,4 @@
-[![Build status](https://img.shields.io/appveyor/ci/Alexx999/il-repack.svg?label=build%20windows)](https://ci.appveyor.com/project/Alexx999/il-repack) [![NuGet](https://img.shields.io/nuget/v/ILRepack.svg)](https://www.nuget.org/packages/avostres.ILRepack/) [![GitHub license](https://img.shields.io/github/license/gluck/il-repack.svg)](http://www.apache.org/licenses/LICENSE-2.0)   
-[![Gitter chat](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/gluck/il-repack)
+[![NuGet](https://img.shields.io/nuget/v/BUTR.ILRepack.svg)](https://www.nuget.org/packages/BUTR.ILRepack/) [![GitHub license](https://img.shields.io/github/license/butr/ilrepack.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Introduction
 ============
@@ -11,13 +10,6 @@ The later being deprecated, unsupported, and based on an old version of Mono.Cec
 
 Here we're using latest (slightly modified) Cecil sources (0.9), you can find the fork [here](https://github.com/gluck/cecil).
 Mono.Posix is also required (build only, it gets merged afterwards) for executable bit set on target file.
-
-Downloads
-------
-
-You can grab it using [NuGet](http://nuget.org/packages/ILRepack/).
-
-Or if you're old-school (and want to stay like that), this [direct link](http://nuget.org/api/v2/package/ILRepack) will give you the latest nupkg file, which you can open as a zip file.
 
 Syntax
 ------
@@ -60,41 +52,5 @@ Syntax: ILRepack.exe [options] /out:<path> <path_to_primary> [<other_assemblies>
 Note: for compatibility purposes, all options can be specified using '/', '-' or '--' prefix.
 ```
 
-How to build
-------
-
-Builds directly from within Visual Studio 2015, or using gradle:
-
-```
-git clone --recursive https://github.com/gluck/il-repack.git
-cd il-repack
-gradlew.bat msbuild
-```
-
 (Mono.Posix 3.5-compatible dependency was grabbed from a non-standard nuget repo, it has been commited to git to avoid the dependency on this repo)
 
-TODO
-------
-  * Crash-testing
-  * Add remaining features from ILMerge (closed / align)
-  * Merge import process & reference fixing
-
-DONE
-------
-  * PDBs & MDBs should be merged (Thanks Simon)
-  * Fixed internal method overriding public one which isn't allowed in the same assembly (Simon)
-  * Attribute merge (/copyattrs)
-  * XML documentation merge
-  * Clean command line parameter parsing
-  * Add usage / version
-  * App.config merge
-  * Internalizing types (Simon)
-  * Delay signing (Simon)
-  * Target platform selection (Simon)
-  * Automatic internal type renaming
-
-Sponsoring / Donations
-------
-If you like this tool and want to express your thanks, you can contribute either time to the project (issue triage or pull-requests) or donate money to the Free Software Foundation.
-
-[![Donate](https://www.gnu.org/graphics/logo-fsf.org-tiny.png)](https://my.fsf.org/donate/)
