@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>BUTR.ILRepack</id>
+    <version>2.1.9</version>
+    <title>ILRepack - Open-source alternative to ILMerge</title>
+    <authors>Alexander Vostres,Francois Valdy,Sewer56,Aragas</authors>
+    <owners>Aragas</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ILRepack is meant at replacing ILMerge / Mono.Merge.
+The former being closed-source, impossible to customize, slow, resource consuming and many more. The later being deprecated, unsupported, and based on an old version of Mono.Cecil.</description>
+    <summary>ILRepack is a utility that can be used to merge multiple .NET assemblies into a single assembly</summary>
+  </metadata>
+  <files>
+    <file src="ILRepack.props" target="build\ILRepack.props" />
+    <file src="bin\Release\netstandard2.0\ILRepack.dll" target="lib\netstandard2.0\ILRepack.dll" />
+    <file src="bin\Release\net461\ILRepack.exe" target="tools\net461\ILRepack.exe" />
+    <file src="bin\Release\netcoreapp3.1\ILRepack.dll" target="tools\netcoreapp3.1\ILRepack.dll" />
+    <file src="bin\Release\netcoreapp3.1\ILRepack.deps.json" target="tools\netcoreapp3.1\ILRepack.deps.json" />
+    <file src="bin\Release\netcoreapp3.1\ILRepack.runtimeconfig.json" target="tools\netcoreapp3.1\ILRepack.runtimeconfig.json" />
+  </files>
+</package>
