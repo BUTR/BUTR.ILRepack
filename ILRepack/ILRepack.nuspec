@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>BUTR.ILRepack</id>
-    <version>2.1.9-beta</version>
+    <version>2.1.9-beta2</version>
     <title>ILRepack - Open-source alternative to ILMerge</title>
     <authors>Alexander Vostres,Francois Valdy,Sewer56,Aragas</authors>
     <owners>Aragas</owners>
@@ -12,7 +12,7 @@ The former being closed-source, impossible to customize, slow, resource consumin
     <summary>ILRepack is a utility that can be used to merge multiple .NET assemblies into a single assembly</summary>
   </metadata>
   <files>
-    <file src="ILRepack.props" target="build\ILRepack.props" />
+    <file src="ILRepack.props" target="build\BUTR.ILRepack.props" />
     <file src="bin\Release\net461\ILRepack.exe" target="tools\net461\ILRepack.exe" />
     <!--
     <file src="bin\Release\netcoreapp3.1\ILRepack.dll" target="tools\netcoreapp3.1\ILRepack.dll" />
