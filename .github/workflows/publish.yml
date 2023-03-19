@@ -30,7 +30,7 @@ jobs:
           dotnet-version: 3.1.x
 
       - name: Build ILRepack
-        run: dotnet pack src/ILRepack/ILRepack.csproj --configuration Release -o "./packages";
+        run: dotnet build ILRepack/ILRepack.csproj --configuration Release -o "./packages";
         shell: pwsh
 
       - name: ILRepack ILRepack
