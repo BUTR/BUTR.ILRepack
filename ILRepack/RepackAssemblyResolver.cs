@@ -169,10 +169,16 @@ namespace ILRepacking
                         path = Path.Combine(path, "v1.1.4322");
                     break;
                 case 2:
-                    path = Path.Combine(path, "v2.0.50727");
+                    if (path.Contains("mono"))
+                        path = Path.Combine(path, "2.0-api");
+                    else
+                        path = Path.Combine(path, "v2.0.50727");
                     break;
                 case 4:
-                    path = Path.Combine(path, "v4.0.30319");
+                    if (path.Contains("mono"))
+                        path = Path.Combine(path, "4.0-api");
+                    else
+                        path = Path.Combine(path, "v4.0.30319");
                     break;
                 default:
                     throw new NotSupportedException("Version not supported: " + version);
@@ -190,6 +196,8 @@ namespace ILRepacking
             var path = Path.Combine(windows, "Microsoft.NET\\Framework");
             if (Directory.Exists(path)) return path;
 
+            var pathMono = "/usr/lib/mono";
+            if (Directory.Exists(pathMono)) return pathMono;
 
             throw new NotSupportedException("Current platform not supported. Unable to find .NET Framework root");
         }

@@ -30,13 +30,17 @@
     <PackageReference Include="fasterflect" Version="3.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+    <PackageReference Include="SourceLink" Version="1.1.0" GeneratePathProperty="true" />
     <PackageReference Condition=" '$(TargetFramework)' != 'net461' " Include="Mono.Posix.NETStandard" Version="1.0.0" />
     <PackageReference Condition=" '$(TargetFramework)' == 'net461' " Include="Mono.Posix" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework) == 'net461' AND $(OS) != 'Windows_NT'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ILRepack.snk" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\packages\SourceLink.1.1.0\tools\pdbstr.exe" />
+    <EmbeddedResource Include="$(PkgSourceLink)\tools\pdbstr.exe" />
   </ItemGroup>
 </Project>

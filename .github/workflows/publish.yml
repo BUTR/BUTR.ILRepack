@@ -1,0 +1,53 @@
+name: Publish ILRepack
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/publish.yml'
+      - 'src/ILRepack/**.*'
+  workflow_dispatch:
+
+env:
+  # Disable the .NET logo in the console output.
+  DOTNET_NOLOGO: true
+  # Disable the .NET first time experience to skip caching NuGet packages and speed up the build.
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending .NET CLI telemetry to Microsoft.
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  publish:
+    name: Publish ILRepack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+    - name: Setup .NET 3.1
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 3.1.x
+
+      - name: Build ILRepack
+        run: dotnet pack src/ILRepack/ILRepack.csproj --configuration Release -o "./packages";
+        shell: pwsh
+
+      - name: ILRepack ILRepack
+        run: >-
+          cd ILRepack\bin\Release\netcoreapp3.1\
+          dotnet ILRepack.dll /log /wildcards /internalize /out:..\..\netcoreapp3.1\ILRepack.dll /target:library ILRepack.dll BamlParser.dll Fasterflect.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll runtimes\win-x64\lib\netstandard2.0\Mono.Posix.NETStandard.dll
+          cd ..\net461
+          mono ILRepack.exe /log /wildcards /internalize /out:..\..\net461\ILRepack.dll /target:library ILRepack.exe BamlParser.dll Fasterflect.dll Mono.Cecil.dll Mono.Cecil.Mdb.dll Mono.Cecil.Pdb.dll Mono.Cecil.Rocks.dll Mono.Posix.dll
+        shell: pwsh
+
+      #- name: Push to NuGet
+      #  run: dotnet nuget push "./packages/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://www.nuget.org
+      #  shell: pwsh
+
+      #- name: Push to GPR
+      #  run: |
+      #    for f in ./packages/*.nupkg
+      #    do
+      #      curl -vX PUT -u "vslee:${{secrets.GITHUB_TOKEN}}" -F package=@$f https://nuget.pkg.github.com/BUTR/
+      #    done
